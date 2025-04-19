@@ -65,6 +65,7 @@ function miniMaxSum(arr) {
 
   const newArr = array.slice(0, 4);
   const newArr2 = array.slice(1, 5);
+
   const sum1NewArr = newArr.reduce((a, c) => a + c);
   const sum2NewArr = newArr2.reduce((a, c) => a + c);
   const arrReturn = [sum1NewArr, sum2NewArr];
@@ -129,4 +130,50 @@ function convertTo24HourFormat(timeString) {
 
 const inputTime = "12:40:03PM";
 const formattedTime = convertTo24HourFormat(inputTime);
-console.log(formattedTime);
+
+function extraLongFactorials(n) {
+  n = BigInt(n);
+
+  let result = 1n;
+
+  for (let i = result; i <= n; i++) {
+    result *= i;
+  }
+
+  return console.log(result.toString());
+}
+
+extraLongFactorials(25);
+
+function nonDivisibleSubset(k, s) {
+  const arr = [];
+  for (let i = 0; i < k.length; i++) {
+    for (let j = i + 1; j < k.length; j++) {
+      arr.push(k[i] + k[j]);
+    }
+  }
+  return arr.map((arr) => arr % s).length;
+}
+
+console.log(nonDivisibleSubset([3, 5, 8, 2], 2));
+
+// s: inteiro, ponto inicial da casa de Sam
+// t: inteiro, ponto final da casa de Sam
+// a: inteiro, posição da macieira
+// b: inteiro, posição da laranjeira
+// apples: array de inteiros, distâncias de cada maçã em relação à macieira
+// oranges: array de inteiros, distâncias de cada laranja em relação à laranjeira
+
+function countApplesAndOranges(s, t, a, b, apples, oranges) {
+  const apples_filter = apples.map((apple, index) => {
+    const sum = a + apple;
+    if (sum >= s && sum <= t) return console.log(index);
+  });
+
+  const oranges_filter = oranges.map((orange, index) => {
+    const sum = b + orange;
+    if (sum >= s && sum <= t) return console.log(index);
+  });
+}
+
+countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);

@@ -165,15 +165,50 @@ console.log(nonDivisibleSubset([3, 5, 8, 2], 2));
 // oranges: array de inteiros, distâncias de cada laranja em relação à laranjeira
 
 function countApplesAndOranges(s, t, a, b, apples, oranges) {
-  const apples_filter = apples.map((apple, index) => {
+  apples.forEach((apple, index) => {
     const sum = a + apple;
-    if (sum >= s && sum <= t) return console.log(index);
+    if (sum >= s && sum <= t) console.log(index);
   });
 
-  const oranges_filter = oranges.map((orange, index) => {
+  oranges.forEach((orange, index) => {
     const sum = b + orange;
-    if (sum >= s && sum <= t) return console.log(index);
+    if (sum >= s && sum <= t) console.log(index);
   });
 }
 
 countApplesAndOranges(7, 11, 5, 15, [-2, 2, 1], [5, -6]);
+
+function superReducedString(s) {
+  const result = s.split("").reduce((acc, char) => {
+    if (acc[acc.length - 1] === char) {
+      acc.pop(); // remove o par
+    } else {
+      acc.push(char); // adiciona caractere atual
+    }
+    return acc;
+  }, []);
+  console.log(result);
+  return result.length ? result.join("") : "Empty String";
+}
+
+console.log(superReducedString("aaabccddd")); // "abd"
+
+function camelcase(s) {
+  // Write your code here
+  let count = 0;
+
+  const alfabeto = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
+  const string = s.split("");
+
+  alfabeto.forEach((char) => {
+    string.forEach((char2) => {
+      if (char === char2) {
+        count++;
+      }
+    });
+  });
+
+  console.log(count + 1);
+}
+
+camelcase("saveChangesInTheEditor");

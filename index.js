@@ -212,3 +212,42 @@ function camelcase(s) {
 }
 
 camelcase("saveChangesInTheEditor");
+
+function minimumNumber(n, password) {
+  const minimum_length = 6;
+  let haveCount = 0;
+  let notHaveCount = 0;
+
+  const regexChar = /[A-Z]/;
+  const regexNums = /[0-9]/;
+  const regexLowChar = /[a-z]/;
+  const regexSpecialChar = /[!-\/:-@]/;
+
+  if (regexSpecialChar.test(password)) {
+    haveCount++;
+  } else {
+    notHaveCount++;
+  }
+  if (regexNums.test(password)) {
+    haveCount++;
+  } else {
+    notHaveCount++;
+  }
+  if (regexLowChar.test(password)) {
+    haveCount++;
+  } else {
+    notHaveCount++;
+  }
+  if (regexChar.test(password)) {
+    haveCount++;
+  } else {
+    notHaveCount++;
+  }
+  console.log(haveCount);
+  console.log(notHaveCount);
+  if (n < minimum_length) {
+    
+  }
+  console.log(count);
+}
+minimumNumber(3, "Ab1#"); // Output esperado: 3
